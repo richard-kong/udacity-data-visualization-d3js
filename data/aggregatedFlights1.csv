@@ -1,0 +1,97 @@
+﻿Month,TimeOfDay,FlightCount,isDelayed
+April,Afternoon,102390,Delayed
+April,Afternoon,118020,On Time
+April,Evening,60511,Delayed
+April,Evening,63015,On Time
+April,Late Night,1521,Delayed
+April,Late Night,3240,On Time
+April,Morning,91720,Delayed
+April,Morning,146306,On Time
+August,Afternoon,96737,Delayed
+August,Afternoon,126780,On Time
+August,Evening,58811,Delayed
+August,Evening,66882,On Time
+August,Late Night,1838,Delayed
+August,Late Night,4394,On Time
+August,Morning,82351,Delayed
+August,Morning,162957,On Time
+December,Afternoon,115108,Delayed
+December,Afternoon,88888,On Time
+December,Evening,59829,Delayed
+December,Evening,42582,On Time
+December,Late Night,2342,Delayed
+December,Late Night,2582,On Time
+December,Morning,103214,Delayed
+December,Morning,110202,On Time
+February,Afternoon,112846,Delayed
+February,Afternoon,95235,On Time
+February,Evening,63618,Delayed
+February,Evening,50396,On Time
+February,Late Night,1715,Delayed
+February,Late Night,2664,On Time
+February,Morning,100723,Delayed
+February,Morning,119728,On Time
+January,Afternoon,112898,Delayed
+January,Afternoon,112573,On Time
+January,Evening,63644,Delayed
+January,Evening,57959,On Time
+January,Late Night,1894,Delayed
+January,Late Night,2933,On Time
+January,Morning,100991,Delayed
+January,Morning,134238,On Time
+July,Afternoon,108709,Delayed
+July,Afternoon,119241,On Time
+July,Evening,68911,Delayed
+July,Evening,60863,On Time
+July,Late Night,1792,Delayed
+July,Late Night,4646,On Time
+July,Morning,85218,Delayed
+July,Morning,166043,On Time
+June,Afternoon,120877,Delayed
+June,Afternoon,100318,On Time
+June,Evening,75628,Delayed
+June,Evening,50541,On Time
+June,Late Night,1727,Delayed
+June,Late Night,3861,On Time
+June,Morning,97665,Delayed
+June,Morning,144841,On Time
+March,Afternoon,116994,Delayed
+March,Afternoon,107323,On Time
+March,Evening,70298,Delayed
+March,Evening,57559,On Time
+March,Late Night,1971,Delayed
+March,Late Night,3540,On Time
+March,Morning,105293,Delayed
+March,Morning,135365,On Time
+May,Afternoon,103251,Delayed
+May,Afternoon,122509,On Time
+May,Evening,59548,Delayed
+May,Evening,65255,On Time
+May,Late Night,1425,Delayed
+May,Late Night,3385,On Time
+May,Morning,90449,Delayed
+May,Morning,153388,On Time
+November,Afternoon,75572,Delayed
+November,Afternoon,126575,On Time
+November,Evening,39643,Delayed
+November,Evening,61389,On Time
+November,Late Night,1453,Delayed
+November,Late Night,2917,On Time
+November,Morning,64838,Delayed
+November,Morning,145586,On Time
+October,Afternoon,75444,Delayed
+October,Afternoon,138182,On Time
+October,Evening,39274,Delayed
+October,Evening,70156,On Time
+October,Late Night,1561,Delayed
+October,Late Night,3342,On Time
+October,Morning,67303,Delayed
+October,Morning,156809,On Time
+September,Afternoon,70595,Delayed
+September,Afternoon,134936,On Time
+September,Evening,36361,Delayed
+September,Evening,68975,On Time
+September,Late Night,1134,Delayed
+September,Late Night,3301,On Time
+September,Morning,61869,Delayed
+September,Morning,153105,On Time

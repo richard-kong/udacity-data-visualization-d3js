@@ -1,0 +1,16 @@
+body {
+	font-family: 'Roboto', sans-serif;	
+}
+
+.center-text {
+	text-align: center;
+}
+
+.block {
+	display: block;
+}
+
+.center {
+	margin-left:auto;
+	margin-right: auto;
+}
