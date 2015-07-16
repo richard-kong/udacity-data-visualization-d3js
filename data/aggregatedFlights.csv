@@ -1,0 +1,49 @@
+﻿Month,TimeOfDay,DelayedPercent
+April,Afternoon,0.464543
+August,Afternoon,0.432794
+December,Afternoon,0.564265
+February,Afternoon,0.542317
+January,Afternoon,0.500720
+July,Afternoon,0.476898
+June,Afternoon,0.546472
+March,Afternoon,0.521556
+May,Afternoon,0.457348
+November,Afternoon,0.373846
+October,Afternoon,0.353159
+September,Afternoon,0.343476
+April,Evening,0.489864
+August,Evening,0.467893
+December,Evening,0.584204
+February,Evening,0.557984
+January,Evening,0.523375
+July,Evening,0.531007
+June,Evening,0.599418
+March,Evening,0.549817
+May,Evening,0.477135
+November,Evening,0.392380
+October,Evening,0.358896
+September,Evening,0.345190
+April,Late Night,0.319470
+August,Late Night,0.294929
+December,Late Night,0.475629
+February,Late Night,0.391641
+January,Late Night,0.392376
+July,Late Night,0.278347
+June,Late Night,0.309055
+March,Late Night,0.357648
+May,Late Night,0.296257
+November,Late Night,0.332494
+October,Late Night,0.318376
+September,Late Night,0.255693
+April,Morning,0.385336
+August,Morning,0.335704
+December,Morning,0.483628
+February,Morning,0.456895
+January,Morning,0.429330
+July,Morning,0.339161
+June,Morning,0.402732
+March,Morning,0.437521
+May,Morning,0.370940
+November,Morning,0.308130
+October,Morning,0.300309
+September,Morning,0.287797
