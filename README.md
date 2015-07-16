@@ -32,7 +32,7 @@ Feedback was obtained from 3 people, the key points were:
 * The use of a stacked bar made it hard to work out exactly how many flights were delayed in relation to on time flights. 
 * The stacked bar made it hard to comparison between different groups of data.
 * The user of multiple groups of bars made the chart seem cluttered and difficult to read.
-* The chart was a bit busy, hard to interpret information at a glance.
+* The chart was a bit busy, it is hard to interpret information at a glance. The reader is forced to look at the chart in detail and think about what it means. This is not a good user experience.
 
 
 #Resources
