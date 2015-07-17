@@ -20,14 +20,15 @@ Other chart types that were considered:
 
 ###Final Design
 
-The percent of flights delayed was used instead of a count of flights with color encoding. This simplified the chart and enabled easier comparisons across different months. I remove the time of day variable from the chart since the number of flights vary throughout the day and having this in the chart may have lead to some false conclusions.
-
-I took the advice of the first reviewer on board and modified the visualisation to include flight count. I did this by changing the chart from a line to a bubble chart and I encoded the size variable into the size of the bubbles. 
-Other methods I considered were:
+The final visualisation was a bubble chart with the percentage of flights delayed on the y axis, months on the x, flight number on the z. The z axis was encoded into the size of the bubbles. The use of a percentage removed the need to split the data into 2 series, therefore, making it easier to see trends across time. As per the feedback, I removed the time of day variable from the chart since the number of flights vary throughout the day and having this in the chart may have lead to some false conclusions.
+ 
+Other chart types methods I considered were:
 * Line chart with different size points: I could not get a good balance for the size of the points to make differences visible whilst keeping the line in the chart visible. 
 * Add a bar chart with another axis for the flight count: Including another axis is confusing and the flight count encoding is quite seperated from the trend of delayed flight percentage so it is hard to relate the two together.
 
-A bubble chart was a good choice because it kept the chart simple and easy to interpret. Flight counts, and the trend of delayed flights across the months were all encode into the size and placement of the bubbles making it easy to interpret the data together. The largest change in flight numbers was about 12%, this was hardly visible when looking at the the size differences of the bubbles. I chose the modify the scale to reduce the size of bubbles to reduce overlapping and also to show the reduction in flights more prominently. I was conscious that changing the scale would exaggerate small differences in flight numbers, so, I experimented with a few different settings to minimise the effect.   
+A bubble chart was a good choice because it kept the chart simple and easy to interpret. Flight counts, and the trend of delayed flights across the months were all encoded into the size and placement of the bubbles making it easy to interpret the data together. 
+
+The largest change in flight numbers between months was about 12%, this was hardly visible when looking at the the size differences of the bubbles. I chose the modify the z scale to reduce the size of bubbles to reduce overlapping and also to show the reduction in flights more prominently. I was conscious that changing the scale would exaggerate small differences in flight numbers, so, I experimented with a few different settings to minimise the effect.   
 
 I also did some additional data exploration into the flight data to see if there were any clues on why the September to October period had such low flight delay percentages.
 There were 5 fields in the data which could have explained this:
@@ -37,7 +38,7 @@ There were 5 fields in the data which could have explained this:
 * SecurityDelay
 * LateAircraftDelay
 
-Unfortunately, I could not use these fields to enrich my visualisation. The data in these fields was not complete or there were other reasons for delays that were not captured. I found that of fights that were delayed over 50% of them had a value of "NA" for all of the fields listed above.
+Unfortunately, I could not use these fields to enrich my visualisation. The data in these fields were not complete or there were other reasons for delays that were not captured. I found that of fights that were delayed, over 50% of them had a value of "NA" for all of the fields listed above.
 
 Based on the data I have, I am unable to provide any strong evidence to support any conclusions. It looks like that the lower percentantage delayed flights was due to an overall number of flights in the September - November period, this is probably not the only factor in play. If you look at December there are a similiar number of flights but the rate of delay is almost the highest of any month. 
 
@@ -62,7 +63,7 @@ Questions and Relationships
 The main takeaway is that there are lower rates of delay in the morning than the afternoon and evening, and, September to November is the time of the year to travel if you want the lowest chance of having a flight delayed.
 
 ###Feedback 3
-It would be nice to somehow compare the trends of say mornings only across all months
+It would be nice to somehow compare the trends of a specific part of the day across all months
 
 ###Feedback 4 (Udacity Review)
 Analysing the flight delays across different times of the day could be misleading due to a disprotional number of flights at different times of the day. I would also need to somehow bring the flight count into the visualisation to show a more complete picture.
