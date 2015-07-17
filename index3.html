@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>US Flight Delays in 2008</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <script type="text/javascript">
+      function draw(data) {
+        /*
+          D3.js setup code
+        */
+
+        "use strict";
+        var margin = 75,
+            width = 1000 - margin,
+            height = 600 - margin;
+		  
+          
+		    var svg = d3.select("body").select("div")
+                    .append("svg")
+                    .attr("class","block center")
+                    .attr("width", width + margin)
+                    .attr("height", height + margin)
+                    .append('g')
+                    .attr('class','chart');
+
+        /** 
+        *  Setup Dimple.js Chart
+        */
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 30, width, height);
+        myChart.ease = "linear";
+        myChart.staggerDraw = true;
+          
+        /**
+         * setup x-axis
+         */ 
+        var x =  myChart.addCategoryAxis("x", ["Month", "TimeOfDay"]);
+        x.fontFamily = "Roboto";
+
+		    x.addOrderRule([
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+          ]);
+                        
+		    x.addGroupOrderRule([
+          "Morning",
+          "Afternoon",
+          "Evening",
+          "Late Night"
+         ]);
+         x.title = "Month";
+          
+          
+         /**
+         * setup y-axis
+         */ 
+         var y = myChart.addMeasureAxis("y", "DelayedPercent");
+		     y.tickFormat = "%";
+         y.title = "Percent of Flights Delayed";
+         y.fontFamily = "Roboto";
+		  
+         var series = myChart.addSeries("TimeOfDay", dimple.plot.line);
+         series.getTooltipText = function (e) {
+          var xValue = e.cx;
+          var yValue = (e.cy * 100).toFixed(1) + "%" ;
+          var seriesValue = e.aggField[0];
+    
+          return [
+            "Time of Day: ".concat(xValue),
+            "% of Flights Delayed: ".concat(yValue),
+            "Time of Day: ".concat(seriesValue)
+          ];
+        };
+
+        /**
+         * setup legend
+         */ 
+
+        var myLegend = myChart.addLegend(width, 0, 60, 300, "Right");
+       
+        
+        //Add some instructions on how to interact with the legend
+        svg.selectAll("title_text")
+          .data(["Click legend to","show/hide Times of day:"])
+          .enter()
+          .append("text")
+            .attr("x", width - 150)
+            .attr("y", function (d, i) { return 30 + i * 14; })
+            .style("font-family", "Roboto")
+            .style("font-size", "10px")
+            .style("color", "Black")
+            .text(function (d) { return d; });
+
+        
+        myChart.draw(500);
+        myChart.legends = [];
+     
+        var filterValues = dimple.getUniqueValues(data, "TimeOfDay");
+        
+        /**
+        * Add click events to each legend item. 
+        * Hide the filter values that match the clicked shape
+        * If it is the last remaining value, do not deselect it since we do not want a blank chart
+        *
+        * Compares the clicked value with the list of current values in legend and disables it in the legend
+        * The new filter is then sent to filter the data in the chart, the chart is redrawn to remove the series.
+        */
+        
+        myLegend.shapes.selectAll("rect")
+          .on("click", function (e) {
+
+            var hide = false;
+            var newFilters = [];
+            
+            filterValues.forEach(function (f) {
+              if (f === e.aggField.slice(-1)[0]) {
+                hide = true;
+              } else {
+                newFilters.push(f);
+              }
+            });
+            
+            //Do not disable or remove last series item
+            if (newFilters.length == 0) { 
+              return false;
+             }
+            
+            // Hide the shape or show it in the legend
+            if (hide) {
+              d3.select(this).style("opacity", 0.2);
+            } else {
+              newFilters.push(e.aggField.slice(-1)[0]);
+              d3.select(this).style("opacity", 0.8);
+            }
+            
+            // Filter the data and redraw the chart
+            filterValues = newFilters;
+            myChart.data = dimple.filterData(data, "TimeOfDay", filterValues);
+            myChart.draw(300);
+          });
+      };
+      </script>
+  </head>
+<body>
+  <div>
+  <h2 class = "center-text">Percent of US Flights Delayed in 2008</h2>
+  <script type="text/javascript">
+  /*
+    Use D3 (not dimple.js) to load the CSV file
+    and pass the contents of it to the draw function
+    */
+  d3.csv("data/aggregatedFlights.csv", draw);
+  </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>US Flight Delays in 2008</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <script type="text/javascript">
+      function draw(data) {
+        /*
+          D3.js setup code
+        */
+
+        "use strict";
+        var margin = 75,
+            width = 1200 - margin,
+            height = 600 - margin;
+		  
+          
+		    var svg = d3.select("body").select("div")
+                    .append("svg")
+                    .attr("class","block center")
+                    .attr("width", width + margin)
+                    .attr("height", height + margin)
+                    .append('g')
+                    .attr('class','chart');
+
+        /** 
+        *  Setup Dimple.js Chart
+        */
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 30, width, height);
+        myChart.ease = "bounce";
+        myChart.staggerDraw = true;
+          
+        /**
+         * setup x-axis
+         */ 
+        var x =  myChart.addCategoryAxis("x", "Month");
+        x.fontFamily = "Roboto";
+
+		    x.addOrderRule([
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+          ]);
+                        
+		 
+         x.title = "Month";
+          
+        /** Setup Z axis
+		    * 
+		    */
+		
+  		  var z = myChart.addMeasureAxis("z", "FlightCount");
+  		  z.overrideMin = 250000;
+  		  z.overrideMax = 650000;
+		
+         /**
+         * setup y-axis
+         */ 
+         var y = myChart.addMeasureAxis("y", "DelayedPercent");
+		     y.tickFormat = "%";
+         y.title = "Percent of Flights Delayed";
+         y.fontFamily = "Roboto";
+		  
+     
+     
+          var series = myChart.addSeries(null, dimple.plot.bubble);
+
+          /** 
+           *Customise the tooltip 
+           */
+
+          series.getTooltipText = function (e) {
+          var xValue = e.cx;
+          var yValue = (e.cy * 100).toFixed(1) + "%" ;
+		      var zValue = e.cz;
+          var seriesValue = e.aggField[0];
+    
+          return [
+            "Month: ".concat(xValue),
+            "% of Flights Delayed: ".concat(yValue),
+            "Total Flights: ".concat(zValue)
+          ];
+        };
+
+    
+        myChart.draw(2000);
+
+      };
+	  
+
+	  
+      </script>
+  </head>
+<body>
+  <div>
+  <h2 class = "center-text">Percent of US Flights Delayed in 2008</h2>
+  <script type="text/javascript">
+  /*
+    Use D3 (not dimple.js) to load the CSV file
+    and pass the contents of it to the draw function
+    */
+  d3.csv("data/aggregatedFlights2.csv", draw);
+  </script>
+  </div>
+</body>
+</html>
